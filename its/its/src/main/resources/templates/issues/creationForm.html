@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>課題一覧　｜　課題管理アプリケーション</title>
+</head>
+<body>
+<h1>課題作成</h1>
+<form th:action="@{/issues}" th:method="post">
+    <div>
+        <label for="summaryInput">概要</label>
+        <input type="text" id="summaryInput" name="summary">
+    </div>
+    <div>
+        <label for="descriptionInput">説明</label>
+        <textarea type="text" id="descriptionInput" name="description" row="10"></textarea>
+    </div>
+    <button type="submit">作成</button>
+</form>
+</body>
+</html>
