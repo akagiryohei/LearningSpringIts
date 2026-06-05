@@ -7,14 +7,16 @@
 </head>
 <body>
 <h1>課題作成</h1>
-<form th:action="@{/issues}" th:method="post">
+<form th:action="@{/issues}" th:method="post" th:object="${issueForm}">
     <div>
         <label for="summaryInput">概要</label>
-        <input type="text" id="summaryInput" name="summary">
+        <input type="text" id="summaryInput" th:field="*{summary}">
+        <p th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}"></p>
     </div>
     <div>
         <label for="descriptionInput">説明</label>
-        <textarea type="text" id="descriptionInput" name="description" row="10"></textarea>
+        <textarea type="text" id="descriptionInput" th:field="*{description}" row="10"></textarea>
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
     </div>
     <button type="submit">作成</button>
 </form>
